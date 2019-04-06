@@ -80,7 +80,7 @@ max_items_per_file=20
 while i<len(ratings)- max_items_per_file:
     filename="tweets_"+str(i)
     nextfile=""
-    for j in range(random.random.nextInt(max_items_per_file/2, max_items_per_file)):
+    for j in range(random.randint(max_items_per_file/2, max_items_per_file)):
         nextfile+=pretty_line(ratings[i])+"\n"
         i+=1
     with open(filename, "w") as f:
