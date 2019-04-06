@@ -8,8 +8,10 @@ import os
 import json
 import datetime
 import time
+import random
 from google.cloud import storage
 
+random.seed(0)
 
 source_bucket="big-data-course-datasets"
 source_folder="moviereviews"
@@ -74,11 +76,11 @@ for blob in blobs:
     blob.delete()
 
 i=0
-items_per_file=20
-while i<len(ratings)-items_per_file:
+max_items_per_file=20
+while i<len(ratings)- max_items_per_file:
     filename="tweets_"+str(i)
     nextfile=""
-    for j in range(items_per_file):
+    for j in range(random.random.nextInt(max_items_per_file/2, max_items_per_file)):
         nextfile+=pretty_line(ratings[i])+"\n"
         i+=1
     with open(filename, "w") as f:
