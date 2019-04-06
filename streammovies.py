@@ -13,10 +13,10 @@ from google.cloud import storage
 
 source_bucket="big-data-course-datasets"
 source_folder="moviereviews"
-target_bucket="streaming-examples"
+target_bucket="big-data-streaming-examples"
 files_location="./data"
 
-if not os._exists(files_location):
+if not os.path.isdir(files_location):
     os.mkdir(files_location)
     bucket_name=source_bucket
     storage_client = storage.Client()
